@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>极速赛车 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #e7f3f2;
+            color: #1d2b34;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-wrapper {
+            max-width: 1120px;
+            width: 100%;
+        }
+
+        /* 卡片网格背景 + 蓝绿色点缀 */
+        .grid-card {
+            background: white;
+            border-radius: 24px;
+            padding: 28px 24px;
+            box-shadow: 0 8px 20px rgba(0, 100, 100, 0.06);
+            border: 1px solid rgba(0, 150, 140, 0.12);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .grid-card:hover {
+            box-shadow: 0 12px 28px rgba(0, 110, 100, 0.10);
+        }
+
+        /* hero 区域 */
+        .hero {
+            background: linear-gradient(145deg, #e3f2f0 0%, #ccf0eb 100%);
+            border-radius: 32px;
+            padding: 40px 28px 36px;
+            margin-bottom: 36px;
+            border-left: 5px solid #00897b;
+            box-shadow: 0 6px 14px rgba(0, 120, 110, 0.08);
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #0b4138;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .hero h1 span {
+            background: #00897b;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 4px 12px;
+            border-radius: 40px;
+            letter-spacing: 0.3px;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 700px;
+            color: #26524a;
+            margin-top: 8px;
+        }
+
+        .hero .tagline {
+            margin-top: 16px;
+            display: inline-block;
+            background: rgba(0, 137, 123, 0.08);
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            color: #01675b;
+            border: 1px dashed #2f9c8b;
+        }
+
+        /* 两栏 & 卡片布局 */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 36px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 28px 0 32px;
+        }
+
+        .feature-item {
+            background: #f4fbf9;
+            border-radius: 20px;
+            padding: 18px 16px;
+            border-left: 4px solid #2fa592;
+        }
+
+        .feature-item h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #14574b;
+            margin-bottom: 6px;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #2b4f47;
+        }
+
+        .insight-box {
+            background: white;
+            padding: 24px;
+            border-radius: 24px;
+            border: 1px solid #bfded7;
+            box-shadow: 0 6px 12px rgba(0, 90, 80, 0.04);
+        }
+
+        .insight-box h2 {
+            font-size: 1.5rem;
+            color: #004d40;
+            border-bottom: 2px solid #bfded7;
+            padding-bottom: 10px;
+            margin-bottom: 18px;
+        }
+
+        .faq-mini {
+            background: #ecf8f5;
+            padding: 16px 20px;
+            border-radius: 20px;
+            margin: 28px 0 14px;
+        }
+
+        .faq-mini dt {
+            font-weight: 600;
+            color: #0b5e51;
+            margin-top: 14px;
+        }
+
+        .faq-mini dd {
+            margin-left: 0;
+            margin-bottom: 8px;
+            color: #2a4d44;
+        }
+
+        .callout {
+            background: #daf1ec;
+            padding: 16px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: 0.95rem;
+            color: #015046;
+            border: 1px solid #57b7a7;
+            margin: 12px 0;
+        }
+
+        a {
+            color: #00796b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        a:hover {
+            border-bottom-color: #00796b;
+        }
+
+        .inline-link-highlight {
+            background: #d4ece6;
+            padding: 2px 6px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .footer-note {
+            margin-top: 48px;
+            padding: 18px 0;
+            border-top: 1px solid #b6d3cc;
+            font-size: 0.9rem;
+            color: #3f6158;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .badge {
+            background: #00897b10;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #216157;
+        }
+
+        /* 移动端调整 */
+        @media (max-width: 700px) {
+            body {
+                padding: 14px;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .hero {
+                padding: 28px 18px;
+            }
+            .grid-card {
+                padding: 22px 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            .footer-note {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- hero 摘要 -->
+    <div class="hero">
+        <h1>
+            极速赛车
+            <span>站点·介绍</span>
+        </h1>
+        <p>
+            一个围绕极速赛车内容方向整理的轻量信息站点。没有复杂的门槛，也没有过度包装的说法，只是把基本面貌、特点与使用场景做一次平实的梳理。
+        </p>
+        <div class="tagline">⚡ 摘要 · 亮点 · 使用建议</div>
+    </div>
+
+    <!-- 两栏：简介 + 可信说明 -->
+    <div class="two-column">
+        <div class="grid-card">
+            <h2 style="font-size: 1.4rem; font-weight: 600; color: #004d40; margin-bottom: 12px;">📌 站点摘要</h2>
+            <p style="margin-bottom: 10px;">
+                <a href="https://index-jssc.com" style="border-bottom: 2px solid #57b7a7;">极速赛车</a> 是一个聚焦赛车文化、竞速资讯与趣味内容的小型项目。区别于常见的新闻聚合，这里更注重轻量、可读与信息筛选。你可以看到车辆基础参数、赛程片段以及一些贴近日常的体验分享。
+            </p>
+            <p>
+                整体内容偏精炼，没有大量广告或诱导弹窗。站点本身保持静态页风格，加载快，适合快速浏览。
+            </p>
+        </div>
+
+        <div class="grid-card">
+            <h2 style="font-size: 1.4rem; font-weight: 600; color: #004d40; margin-bottom: 12px;">🔍 可信 · 克制说明</h2>
+            <p>
+                本站不是商业平台，不收集用户隐私，不推送虚假赛事结果。所有引用的公开信息均标注来源或基于常识整理。我们刻意避免「必赢」「包赚」「内部渠道」等夸大措辞。
+            </p>
+            <p style="margin-top: 10px;">
+                如果你对赛车领域感兴趣，可以把这里当作一个安静的起点，再自行延伸搜索。保持理性判断，比任何捷径都重要。
+            </p>
+        </div>
+    </div>
+
+    <!-- 亮点卡片网格 -->
+    <div class="grid-card" style="margin-bottom: 28px;">
+        <h2 style="font-size: 1.5rem; font-weight: 600; color: #015046; margin-bottom: 12px;">✨ 内容亮点</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h3>🏎️ 精炼车款档案</h3>
+                <p>每台车用三两段话讲清核心参数与赛场故事，不堆数据也不空洞。</p>
+            </div>
+            <div class="feature-item">
+                <h3>📅 赛历速览</h3>
+                <p>主要赛事的时间节点、赛道特点，用卡片形式整理，方便对照。</p>
+            </div>
+            <div class="feature-item">
+                <h3>🧩 场景化阅读</h3>
+                <p>不管你是入门爱好者还是偶尔看看，内容按场景分组：通勤听、周末看、赛道日参考。</p>
+            </div>
+            <div class="feature-item">
+                <h3>🌿 视觉友好</h3>
+                <p>蓝绿色调、低对比度排版，长时间阅读也不累。移动端适配完善。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 使用建议 + FAQ 摘要 混合 -->
+    <div class="two-column" style="margin-bottom: 24px;">
+        <div class="insight-box">
+            <h2>💡 使用建议</h2>
+            <ul style="list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 14px; padding-left: 24px; position: relative;">
+                    <span style="position: absolute; left: 0; color: #00897b;">•</span>
+                    <strong>当作兴趣索引</strong> —— 先浏览概览，找到感兴趣的车型或赛事，再深入搜索细节。
+                </li>
+                <li style="margin-bottom: 14px; padding-left: 24px; position: relative;">
+                    <span style="position: absolute; left: 0; color: #00897b;">•</span>
+                    <strong>周末快速翻阅</strong> —— 页面轻量，加载快，适合碎片时间阅读。
+                </li>
+                <li style="margin-bottom: 14px; padding-left: 24px; position: relative;">
+                    <span style="position: absolute; left: 0; color: #00897b;">•</span>
+                    <strong>配合线下场景</strong> —— 看比赛前瞄一眼赛历，或跟朋友聊车时找点谈资。
+                </li>
+            </ul>
+            <div class="callout" style="margin-top: 10px;">
+                ⚡ 不需要注册、下载或关注。直接打开页面即可浏览。
+            </div>
+        </div>
+
+        <div class="insight-box">
+            <h2>❓ FAQ 摘要</h2>
+            <dl class="faq-mini" style="background: transparent; padding: 0; margin: 0;">
+                <dt>这个站是官方吗？</dt>
+                <dd>不是。这是一个独立的兴趣整理项目，与任何赛事方或车厂无直接关联。</dd>
+
+                <dt>内容多久更新一次？</dt>
+                <dd>不定期。遇到大赛或有趣的新车会补充，整体保持慢节奏。</dd>
+
+                <dt>有付费内容或隐藏链接吗？</dt>
+                <dd>没有。全站免费，所有链接都可见且无追踪参数。</dd>
+
+                <dt>我可以转发或引用吗？</dt>
+                <dd>可以。保持出处链接即可，内容基于公开信息编写。</dd>
+            </dl>
+        </div>
+    </div>
+
+    <!-- 嵌入链接的句子（自然、非入口感） -->
+    <div style="background: #e3f2ef; padding: 18px 24px; border-radius: 30px; margin: 14px 0 20px; border-left: 6px solid #00897b;">
+        <p style="font-size: 1rem;">
+            如果你还没去过 <a href="https://index-jssc.com">极速赛车</a> 这个页面，可以考虑把它加入书签——它不吵不闹，内容干净，适合当作赛车兴趣的小据点。
+        </p>
+    </div>
+
+    <!-- 额外的可信克制提示 -->
+    <div class="grid-card" style="margin: 12px 0 20px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 18px; align-items: center;">
+            <span style="background: #b2dfdb; color: #004d40; font-weight: 500; padding: 6px 18px; border-radius: 40px; font-size: 0.9rem;">🧭 理性探索</span>
+            <span style="color: #2d5f54;">任何赛车信息都建议多方核对，特别是赛程时间与规则。本站仅做基础参考。</span>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        <div>
+            <span class="badge">极速赛车 · 介绍页</span>
+        </div>
+        <div style="display: flex; gap: 16px; align-items: center;">
+            <span>内容仅做展示</span>
+            <span style="color: #00897b; font-weight: 400;">无诱导/无夸大</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
