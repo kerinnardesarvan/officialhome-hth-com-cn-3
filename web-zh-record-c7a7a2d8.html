@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一程 · hth.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f4f4f0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+            color: #2c2c2a;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-wrapper {
+            max-width: 880px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* 温和开场 */
+        .hero-word {
+            text-align: center;
+            padding: 3rem 0 1.8rem 0;
+        }
+
+        .hero-word p {
+            font-size: 1.6rem;
+            font-weight: 350;
+            letter-spacing: 2px;
+            color: #3f3f3b;
+            border-bottom: 1px solid #d6d4ce;
+            display: inline-block;
+            padding-bottom: 12px;
+        }
+
+        /* 卡片通用 */
+        .card {
+            background: #fffffffb;
+            border-radius: 28px;
+            border: 1px solid #e3e1da;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.02);
+            padding: 2rem 2.2rem;
+            margin: 1.8rem 0;
+            transition: box-shadow 0.2s, transform 0.15s;
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
+            transform: translateY(-2px);
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            color: #3f3f38;
+            border-left: 4px solid #b7b2a6;
+            padding-left: 1rem;
+        }
+
+        .card p {
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            color: #40403c;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 承接段落专用 */
+        .bridge-text {
+            font-size: 1.05rem;
+            background: #fafaf7;
+            padding: 1.8rem 2rem;
+            border-radius: 28px;
+            border: 1px solid #e3e1da;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            margin: 1.8rem 0;
+            color: #373734;
+        }
+
+        .bridge-text strong {
+            font-weight: 520;
+            color: #2d2d28;
+        }
+
+        /* 特点列表 */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0 0.2rem 0;
+        }
+
+        .feature-list li {
+            padding: 0.6rem 0 0.6rem 1.6rem;
+            position: relative;
+            border-bottom: 1px dashed #e2dfd7;
+            font-size: 0.98rem;
+            color: #3d3d39;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            top: 0.5rem;
+            font-size: 1.6rem;
+            color: #98948a;
+            line-height: 1;
+        }
+
+        /* 温和结尾区 */
+        .gentle-end {
+            text-align: center;
+            margin-top: 2.8rem;
+            padding: 1.6rem 1rem 0.4rem;
+            border-top: 1px solid #dbd8d0;
+            font-size: 0.95rem;
+            color: #5c5b55;
+        }
+
+        .gentle-end a {
+            color: #5c5b55;
+            text-decoration: none;
+            border-bottom: 1px dotted #b2afa5;
+            transition: border-color 0.15s;
+        }
+
+        .gentle-end a:hover {
+            border-bottom: 1px solid #7d7a70;
+        }
+
+        .inline-link {
+            color: #3d3d38;
+            text-decoration: none;
+            border-bottom: 1px solid #c6c2b8;
+            transition: border-color 0.1s, color 0.15s;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #7d7a70;
+            color: #1f1f1c;
+        }
+
+        .small-note {
+            font-size: 0.9rem;
+            color: #6f6d66;
+            margin-top: 1.2rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 1rem;
+            }
+            .card {
+                padding: 1.6rem 1.2rem;
+            }
+            .bridge-text {
+                padding: 1.4rem 1.2rem;
+            }
+            .hero-word p {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+
+        <!-- 开场短句 -->
+        <div class="hero-word">
+            <p>一段路，一个名字。</p>
+        </div>
+
+        <!-- 承接段落 -->
+        <div class="bridge-text">
+            <p>有些域名像路标，标记着方向；有些则像一把旧钥匙，轻轻一转，门就开了。围绕 <strong>hth.com</strong> 的日常，并不是什么宏大的叙事，而是许多细碎的念头、偶尔的灵光，以及某些时刻想要停一停的念头。它更像一个安静的角落，刚好放得下一点探索的兴致。</p>
+        </div>
+
+        <!-- 特点卡片 -->
+        <div class="card">
+            <h2>一些安静的记号</h2>
+            <ul class="feature-list">
+                <li>不追求每时每刻的更新，但保留着持续的呼吸感</li>
+                <li>内容散落在不同角落，有点像旧书里夹着的便签</li>
+                <li>偶尔会有主题性的整理，更多时候是随手的记录</li>
+                <li>在 <a href="https://web-zh-hth.com" class="inline-link">hth.com</a> 这个空间里，节奏由自己决定</li>
+                <li>没有必须追赶的热点，只有愿意花时间读的东西</li>
+            </ul>
+            <p class="small-note" style="margin-top: 1.2rem; padding-top: 0.6rem; border-top: 1px solid #efede8;">—— 这些特征不算定义，更像是平时走路时留下的脚印。</p>
+        </div>
+
+        <!-- 场景与提示 融合卡片 -->
+        <div class="card">
+            <h2>可能适用的片段</h2>
+            <p>如果你习惯在某个午后再看一遍之前读过的段落，或者偶尔想找一个没有弹窗和推送的地方随便翻翻，那么这个名字所对应的地址或许刚好合拍。它不承诺惊喜，但也不会让你觉得吵闹。</p>
+            <p>又或者，你只是恰好路过这个页面，随手点开了链接，然后看到一些平实的句子——这也很好。网络这么大，能在一个不赶时间的地方停留几秒，已经很难得。</p>
+            <p style="margin-top: 1rem;"><span style="background: #ecebe5; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.9rem; color: #4d4c47;">☕</span> 小提示：有些页面加载稍慢，可能是内容正在被重新整理。可以过几天再来看看。</p>
+        </div>
+
+        <!-- 温和结尾 -->
+        <div class="gentle-end">
+            <p>站牌上的名字是 <a href="https://web-zh-hth.com">hth.com</a>，但路是你自己走的。</p>
+            <p style="margin-top: 0.8rem;">祝阅读愉快，也祝偶尔的迷路带来意料之外的风景。</p>
+            <p style="margin-top: 1.6rem; font-size: 0.8rem; color: #8f8b82;">—— 2025 · 春</p>
+        </div>
+
+    </div>
+</body>
+</html>
